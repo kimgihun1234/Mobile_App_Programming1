@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RewardFragment"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/share_reward"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp" />
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginLeft="140dp"
+        android:gravity="center"
+        android:src="@drawable/goal2"/> //설정 목표 달성 월 10회 이상
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:columnCount="2"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/start2"
+                android:id="@+id/start2"
+                android:visibility="invisible"/>
+            //첫번째 운동기록
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/expert2"
+                android:id="@+id/expert2"
+                android:visibility="invisible"/>
+            //10km 달리기
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/run_1hour2" />
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/purple_200"
+                android:src="@drawable/plan1" />
+            //첫 목표 설정
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/intermediate2"
+                android:id="@+id/intermediate2"
+                android:visibility="invisible"/>
+            //5km 달리기 달성
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/run_1hour2"
+                android:id="@+id/run_1hour2"
+                android:visibility="invisible"/>
+            //1시간 달리기 달성
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/run_2hour2"
+                android:id="@+id/run_2hour2"
+                android:visibility="invisible"/>
+            //2시간 이상 운동 달성
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/run_1hour2" />
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="60dp"
+                android:src="@drawable/honor2" />
+            //월 출석 15회 이상
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="60dp"
+                android:src="@drawable/beginner2"
+                android:id="@+id/beginner2"
+                android:visibility="invisible"/>
+            //3km 달리기 달성
+        </GridLayout>
+    </ScrollView>
+
+</LinearLayout>
