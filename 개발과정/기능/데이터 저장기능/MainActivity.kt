@@ -1,47 +1,42 @@
 package com.example.savetest2
 
-import android.app.DatePickerDialog
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.EditText
 import android.database.sqlite.SQLiteDatabase
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import com.example.savetest2.R
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.DialogFragment
 import com.example.savetest2.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
 
+var count = 0
 class MainActivity : AppCompatActivity() {
     val long_now = System.currentTimeMillis()
     val t_date = Date(long_now)
     val t_dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale("ko", "KR"))
     val date = t_dateFormat.format(t_date)
-    lateinit var count: EditText
-    lateinit var calorie: EditText
-    var dbName = "tests.db"
+    var dbName = "test5.db"
     var tableName = "member"
     private lateinit var db: SQLiteDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        count = binding.count
-        calorie = binding.calorie
+        binding.cnt.text=count.toString()
+        binding.btn.setOnClickListener {
+            count++
+            binding.cnt.text=count.toString()
+        }
         //날짜 지나면 초기화 부분
         val intentFilter = IntentFilter(Intent.ACTION_DATE_CHANGED)
         val receiver = object : BroadcastReceiver() {
             override fun onReceive(p0: Context?, p1: Intent?) {
-                
+
             }
         }
         registerReceiver(receiver, intentFilter)
@@ -50,17 +45,12 @@ class MainActivity : AppCompatActivity() {
 
         //테이블 생성
         //CREATE~ 없으면 만든다. / 괄호 안에 SQL언어
-        db.execSQL("CREATE TABLE IF NOT EXISTS $tableName(num integer primary key autoincrement, date text not null, count integer, calorie integer);")
+        db.execSQL("CREATE TABLE IF NOT EXISTS $tableName(num integer primary key autoincrement, date text not null, count integer);")
     }
 
     fun clickInsert(view: View?) {
-        val count = count.text.toString().toInt()
-        val calorie = calorie.text.toString().toInt()
-
         //db에 데이터 삽입
-        db.execSQL("INSERT INTO $tableName(date, count, calorie) VALUES('$date','$count','$calorie');")
-        this.count.setText("")
-        this.calorie.setText("")
+        db.execSQL("INSERT INTO $tableName(date, count) VALUES('$date','$count');")
     }
 
     fun clickSelectAll(view: View?) {
@@ -71,8 +61,7 @@ class MainActivity : AppCompatActivity() {
             val num = cursor.getInt(0)
             val date = cursor.getString(1)
             val count = cursor.getInt(2)
-            val calorie = cursor.getInt(3)
-            buffer.append("$num  $date  $count  $calorie\n")
+            buffer.append("$num  $date  $count\n")
         }
         AlertDialog.Builder(this).setMessage(buffer.toString()).setPositiveButton("OK", null)
             .create().show()
@@ -94,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickUpdate(view: View?) {
-        db.execSQL("UPDATE $tableName SET count=30, calorie=500 WHERE date=?", arrayOf(date))
+        db.execSQL("UPDATE $tableName SET count=$count WHERE date=?", arrayOf(date))
     }
 
     fun clickDelete(view: View?) {
