@@ -9,13 +9,6 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="input date"
-        android:inputType="date"/>
-
-    <EditText
         android:id="@+id/count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +20,6 @@
         android:layout_height="wrap_content"
         android:hint="input calorie"
         android:inputType="number"/>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,12 +38,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="update by name"
+        android:text="update by date"
         android:onClick="clickUpdate"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="delete by name"
+        android:text="delete by date"
         android:onClick="clickDelete"/>
 
 
