@@ -37,11 +37,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         count = binding.count
         calorie = binding.calorie
-
+        //날짜 지나면 초기화 부분
         val intentFilter = IntentFilter(Intent.ACTION_DATE_CHANGED)
         val receiver = object : BroadcastReceiver() {
             override fun onReceive(p0: Context?, p1: Intent?) {
-
+                
             }
         }
         registerReceiver(receiver, intentFilter)
