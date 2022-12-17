@@ -55,7 +55,9 @@ class MainActivity : AppCompatActivity() {
         val intentFilter = IntentFilter(Intent.ACTION_DATE_CHANGED)
         val receiver = object : BroadcastReceiver() {
             override fun onReceive(p0: Context?, p1: Intent?) {
-                
+                //db에 데이터 삽입
+                val insertValue = binding.cnt.text.toString().toInt()
+                db.execSQL("INSERT INTO $tableName(date, count) VALUES('$date','$insertValue');")
             }
         }
         registerReceiver(receiver, intentFilter)
