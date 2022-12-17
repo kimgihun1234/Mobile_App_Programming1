@@ -8,18 +8,19 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/count"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="input count"
-        android:inputType="number"/>
-    <EditText
-        android:id="@+id/calorie"
+        android:text="0"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:id="@+id/cnt"/>
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="input calorie"
-        android:inputType="number"/>
+        android:text="count"
+        android:id="@+id/btn"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
