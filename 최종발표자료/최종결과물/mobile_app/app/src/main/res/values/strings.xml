@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">mobile_app</string>
+    <string name="opened">Opened Drawer</string>
+    <string name="closed">Closed Drawer</string>
+</resources>
